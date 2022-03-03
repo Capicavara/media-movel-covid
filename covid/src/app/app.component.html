@@ -1,0 +1,17 @@
+<html>
+<header></header>
+<body [style.pointer-events]="loading ? 'none' : (!loading ? 'all' : null)" style="background-color: black;" [style.opacity]="loading ? '0.5' : (!loading ? '1' : null)">
+  <div style="max-width: auto; text-align: center;">
+    <mat-spinner *ngIf="loading"></mat-spinner>
+    <mat-card (click)="openDialog(mobileMedia)" [style.background-color]="isTrue ? 'red' : (!isTrue ? 'green' : null)" style="color:white; background-color: green;">
+      <mat-card-title *ngIf="!isTrue">Média móvel de óbitos estável (nas ultimas duas semanas)</mat-card-title>
+      <mat-card-title *ngIf="isTrue">Média móvel de óbitos em alta (nas ultimas duas semanas)</mat-card-title>
+      <mat-card-content style="padding-left:45%;">
+        <mat-chip-list st aria-label="Fish selection">
+          <mat-chip>{{mobileMedia}}%</mat-chip>
+        </mat-chip-list>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</body>
+</html>
